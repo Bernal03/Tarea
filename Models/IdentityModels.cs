@@ -29,6 +29,8 @@ namespace Tarea.Models
         {
             return new ApplicationDbContext();
         }
-
+        
+        public DbSet<Products> Products { get; set; }
+        public DbSet<Suppliers> Suppliers { get; set; }
     }
 }
