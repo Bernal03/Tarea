@@ -10,7 +10,12 @@ namespace Tarea.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                RedirectToAction("Index","Principal");
+            }
+           return View();
+            
         }
 
         public ActionResult About()
