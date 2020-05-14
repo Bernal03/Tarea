@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Tarea.Controllers
 {
+    [Authorize]
     public class PrincipalController : Controller
     {
         // GET: Principal

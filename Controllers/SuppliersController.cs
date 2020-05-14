@@ -10,6 +10,7 @@ using Tarea.Models;
 
 namespace Tarea.Controllers
 {
+    [Authorize]
     public class SuppliersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -36,6 +37,7 @@ namespace Tarea.Controllers
         }
 
         // GET: Suppliers/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -46,7 +48,7 @@ namespace Tarea.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,SupplierCode,SupplierNAme,Email,Phone,Address")] Suppliers suppliers)
+        public ActionResult Create(Suppliers suppliers)
         {
             if (ModelState.IsValid)
             {

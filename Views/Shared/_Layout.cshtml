@@ -18,6 +18,7 @@
 
     <!-- Custom styles for this template-->
     <link href="~/Content/sb-admin-2.min.css" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" />
 
 </head>
 
@@ -43,7 +44,7 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="@Url.Action("Index","Home")">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Principal</span>
                     </a>
@@ -65,7 +66,7 @@
                     </a>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            
+
                             <a class="collapse-item" href="@Url.Action("Index","Products")">Productos</a>
                             <a class="collapse-item" href="@Url.Action("Index","Suppliers")">Proveedores</a>
                         </div>
@@ -156,14 +157,12 @@
                     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                         <!-- Sidebar Toggle (Topbar) -->
-
-
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
 
 
 
-                           
+
 
                             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -251,14 +250,14 @@
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                     {
-                    @Html.AntiForgeryToken()
+                        @Html.AntiForgeryToken()
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                           
-                        </li>
-                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
-                    </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+
+                            </li>
+                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+                        </ul>
                     }
                 </div>
             </div>
@@ -274,6 +273,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="~/Scripts/sb-admin-2.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     @RenderSection("scripts", required: false)
 
 </body>

@@ -10,6 +10,7 @@ using Tarea.Models;
 
 namespace Tarea.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -118,6 +119,12 @@ namespace Tarea.Controllers
             db.Products.Remove(products);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ProductBySupplier(int supplierId)
+        {
+            var products = db.Products.Where(p => p.SupplierId == supplierId).ToList();
+            return View(products);
         }
 
         protected override void Dispose(bool disposing)
